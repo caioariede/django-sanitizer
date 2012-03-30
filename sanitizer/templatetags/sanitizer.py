@@ -62,8 +62,8 @@ def allowtags(value, allowed=None, callback=None):
         if tag_name.startswith('-'):
             remove_tags.add(tag_name[1:])
             continue
-        allowed_attrs = allowed_attrs.split(',')
-        allowed_children = allowed_children.split(',')
+        allowed_attrs = allowed_attrs.split(',') if allowed_attrs else []
+        allowed_children = allowed_children.split(',') if allowed_children else []
         # SPECIAL CASE: tag:attrs[] means "no children allowed"
         # ommission of the [] at all means "any chidlren allowed"
         # allowed_children = [] if no children are allowed
